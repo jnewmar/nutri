@@ -1,0 +1,53 @@
+<template name="nutricionistaNovo">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Cadastrar Nutricionista</h1>
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton path="index"}}
+	  {{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}
+
+
+	<form id="formCadastraNutricionista">
+	{{#ionList}}
+		<label class="item item-input">
+			<span class="input-label">Nome</span>
+			<input type="text" id="nome">
+		  </label>
+		 <label class="item item-input">
+			<span class="input-label">Email</span>
+			<input type="email" id="email">
+		  </label>
+		  <label class="item item-input">
+			<span class="input-label">Password</span>
+			<input type="password" id="senha">
+		  </label>
+		 <label class="item item-input">
+			<span class="input-label">Data Nascimento</span>
+			<input type="date" id="data_nascimento">
+		  </label> 		  
+		  
+		  <label class="item item-input item-select">
+			<div class="input-label">
+			  Sexo
+			</div>
+			<select id="sexo">
+			  <option value=""></option>
+			  <option value="M">Masculino</option>
+			  <option value= "F" >Feminino</option>
+			</select>
+		  </label>
+
+		  	 
+		   		  
+		{{#ionItem}}
+		<button type="submit" class="button button-block button-positive" id="buttonCadastrarNutricionista">Cadastrar</button>	
+		{{/ionItem}}
+	{{/ionList}}
+	</form>	
+
+  		{{/ionContent}}
+	{{/ionView}}
+</template>

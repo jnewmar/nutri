@@ -1,0 +1,61 @@
+<template name="home">
+	{{#contentFor "headerTitle"}}
+			 <h1 class="title" style="text-align:center" >Home</h1>
+	{{/contentFor}}
+	{{#if currentUser}}
+		{{#contentFor "headerButtonRight"}}  
+			<!--button class="button button-positive" data-action="logout">Log Out</button-->
+		{{/contentFor}}
+	{{/if}}
+	{{#ionView}}
+		{{#ionContent}}
+		{{#if currentUser}}
+			{{#ionList}}
+				{{#ionItem path="profile" buttonRight=true  class="item-icon-right"}}
+				Profile            
+				{{> ionIcon icon="arrow-forward" class="positive"}}
+				{{/ionItem}}			
+				{{#if isInRole 'admin'}}
+						{{#ionItem path="nutricionistas" buttonRight=true  class="item-icon-right"}}
+						Nutricionistas
+						{{> ionIcon icon="arrow-forward" class="positive"}}
+						{{/ionItem}}				
+						{{#ionItem path="usuarios" buttonRight=true  class="item-icon-right"}}
+						Usuarios            
+						{{> ionIcon icon="arrow-forward" class="positive"}}
+						{{/ionItem}}
+						{{#ionItem path="alimentos" buttonRight=true  class="item-icon-right"}}
+						Alimentos            
+						{{> ionIcon icon="arrow-forward" class="positive"}}
+						{{/ionItem}}
+				{{else}}
+					{{#if isInRole 'nutri'}}
+						{{#ionItem path="pacientes" buttonRight=true  class="item-icon-right"}}
+						Pacientes
+						{{> ionIcon icon="arrow-forward" class="positive"}}
+						{{/ionItem}}				
+					{{else}}
+						{{#ionItem path="dieta" buttonRight=true  class="item-icon-right"}}
+						Dieta            
+						{{> ionIcon icon="arrow-forward" class="positive"}}
+						{{/ionItem}}						
+					{{/if}}
+				{{/if}}
+				{{#ionItem}}
+				  <button class="button button-positive button-block" data-action="logout">Log Out</button>
+				{{/ionItem}}
+	
+			{{/ionList}}
+			
+			{{else}}
+			<div class="card" draggable="true">
+			  <div class="item item-text-wrap" >
+				Voce deve fazer login.
+			  </div>
+			</div>			
+			
+			{{/if}}
+
+		{{/ionContent}}
+	{{/ionView}}
+</template>

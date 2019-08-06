@@ -1,0 +1,34 @@
+<template name="profile">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Profile</h1>
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+	
+	{{#ionView}}
+		{{#ionContent}}
+
+			{{#ionList}}
+				{{#ionItem}}id: {{currentUser._id}}{{/ionItem}}
+				{{#ionItem}}Nome: {{currentUser.profile.name}}{{/ionItem}}
+				{{#ionItem}}Email: {{currentUser.emails.[0].address}}{{/ionItem}}
+				{{#if currentUser.profile.sexo }}{{#ionItem}}Sexo: {{currentUser.profile.sexo}}{{/ionItem}}{{/if}}
+				{{#if currentUser.profile.data_nascimento }}{{#ionItem}}Data Nascimento: {{currentUser.profile.data_nascimento}} {{/ionItem}}{{/if}}
+				
+				
+				{{#if isInRole 'admin'}}
+						{{#ionItem}}Tipo: ADMIN{{/ionItem}}
+					{{else}}				
+						{{#if isInRole 'nutri'}}
+							{{#ionItem}}Tipo: NUTRICIONISTA{{/ionItem}}				
+						{{else}}
+							{{#ionItem}}Altura: {{currentUser.profile.altura}} m{{/ionItem}} 
+							{{#ionItem}}Peso: {{currentUser.profile.peso}} Kg{{/ionItem}}
+							{{#ionItem}}Tipo: PACIENTE{{/ionItem}}
+						{{/if}}
+					{{/if}}
+			{{/ionList}}
+  		{{/ionContent}}
+	{{/ionView}}
+</template>

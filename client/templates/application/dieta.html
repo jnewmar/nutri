@@ -1,0 +1,60 @@
+<template name="dieta">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Dieta</h1>
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+	{{#contentFor "headerButtonRight"}}
+    <!--a class="button button-clear" href="/login">Login</a-->
+	{{/contentFor}}
+	{{#ionView}}
+		{{#ionContent}}  
+			{{#ionList}}
+				<div class="item item-divider">
+					Café da Manha
+				</div>
+				{{#each getDietaAlimentos "dieta-1" }}
+						{{#ionItem}}
+						{{alimento }}						
+						{{/ionItem}}
+				{{else}}
+						{{#ionItem}}Ainda não foram selecionados alimentos pelo seu nutricionista{{/ionItem}}
+				{{/each}}
+				
+				<div class="item item-divider">
+					Almoço
+				</div>
+				{{#each getDietaAlimentos "dieta-2" }}
+						{{#ionItem}}
+						{{alimento }}
+						{{/ionItem}}
+				{{else}}
+						{{#ionItem}}Ainda não foram selecionados alimentos pelo seu nutricionista{{/ionItem}}	
+				{{/each}}				
+				
+				<div class="item item-divider">
+					Lanche da Tarde
+				</div>
+				{{#each getDietaAlimentos "dieta-3" }}
+						{{#ionItem}}
+						{{alimento }}
+						{{/ionItem}}
+				{{else}}
+						{{#ionItem}}Ainda não foram selecionados alimentos pelo seu nutricionista{{/ionItem}}						
+				{{/each}}				
+				
+				<div class="item item-divider">
+					Jantar
+				</div>
+				{{#each getDietaAlimentos "dieta-4" }}
+						{{#ionItem}}
+						{{alimento }}
+						{{/ionItem}}
+				{{else}}
+						{{#ionItem}}Ainda não foram selecionados alimentos pelo seu nutricionista{{/ionItem}}						
+				{{/each}}				
+			{{/ionList}}		
+  		{{/ionContent}}
+	{{/ionView}}
+</template>

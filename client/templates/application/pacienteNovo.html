@@ -1,0 +1,65 @@
+<template name="pacienteNovo">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Cadastrar Paciente</h1>
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+		{{>ionNavBackButton path="index"}}
+	  {{/contentFor}}
+	
+	{{#ionView}}
+		{{#ionContent}}
+
+
+	<form id="formCadastraPaciente">
+	{{#ionList}}
+		<label class="item item-input">
+			<span class="input-label">Nome</span>
+			<input type="text" id="nome">
+		  </label>
+		 <label class="item item-input">
+			<span class="input-label">Email</span>
+			<input type="email" id="email">
+		  </label>
+		  <label class="item item-input">
+			<span class="input-label">Password</span>
+			<input type="password" id="senha">
+		  </label>
+		 <label class="item item-input">
+			<span class="input-label">Data Nascimento</span>
+			<input type="date" id="data_nascimento">
+		  </label> 		  
+		  
+		  <label class="item item-input item-select">
+			<div class="input-label">
+			  Sexo
+			</div>
+			<select id="sexo">
+			  <option value=""></option>
+			  <option value="M">Masculino</option>
+			  <option value= "F" >Feminino</option>
+			</select>
+		  </label>
+
+		   <label class="item item-input item-select">
+			<div class="input-label">
+			  Peso (Kg)
+			</div>
+			<input type="number" id="peso" min="40" max="180">
+		  </label>
+		 
+		   <label class="item item-input item-select">
+			<div class="input-label">
+			  Altura (metros)
+			</div>
+			<input type="number" id="altura" min="1.00" max="2.50" step="0.01"> 
+		  </label>
+		  
+		{{#ionItem}}
+		<button type="UBMIT" class="button button-block button-positive" id="buttonCadastrarPaciente">Cadastrar</button>	
+		{{/ionItem}}
+	{{/ionList}}
+	</form>	
+
+  		{{/ionContent}}
+	{{/ionView}}
+</template>

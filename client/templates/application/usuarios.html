@@ -1,0 +1,20 @@
+<template name="usuarios">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Usuarios</h1>
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}}  
+			{{#ionList}}
+			{{#each lista}}
+				{{#ionItem}}
+				{{ profile.name }}  - {{ roles }}         				
+				{{/ionItem}}
+			{{/each}}
+			{{/ionList}}
+  		{{/ionContent}}
+	{{/ionView}}
+</template>

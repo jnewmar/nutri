@@ -1,0 +1,29 @@
+<template name="alimentos">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Alimentos</h1>
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+  {{#contentFor "headerButtonRight"}}
+    <button class="button button-clear" data-ion-modal="_alimentoNovo">{{> ionIcon icon="ios-plus-empty"}}</button>
+  {{/contentFor}}  
+
+	{{#ionView}}
+		{{#ionContent}}  
+			{{#ionList}}
+			{{#each alimentos}}
+				{{#ionItem}}
+				{{ descricao }}            				
+				{{/ionItem}}
+			{{/each}}
+			<!--
+			{{#if nextPath}}
+			{{#ionItem}}
+			  <a class="load-more" href="{{nextPath}}">Carregar mais</a>
+			  {{/ionItem}}
+			{{/if}}-->
+			{{/ionList}}
+  		{{/ionContent}}
+	{{/ionView}}
+</template>

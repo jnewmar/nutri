@@ -1,0 +1,24 @@
+<template name="nutricionistas">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Nutricionistas</h1>		
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+	{{#contentFor "headerButtonRight"}}
+	<a href="{{pathFor 'nutricionistaNovo'}}" class="button button-clear right"  >{{> ionIcon icon="ios-plus-empty"}}</a>
+  {{/contentFor}} 
+        
+ 
+	{{#ionView}}
+		{{#ionContent}}  
+			{{#ionList}}			
+			{{#each lista}}
+				{{#ionItem}}
+				{{ profile.name }}	
+				{{/ionItem}}
+			{{/each}}
+			{{/ionList}}
+  		{{/ionContent}}
+	{{/ionView}}
+</template>

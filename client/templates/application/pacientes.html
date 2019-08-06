@@ -1,0 +1,25 @@
+<template name="pacientes">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Pacientes</h1>		
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+	{{#contentFor "headerButtonRight"}}
+	<a href="{{pathFor 'pacienteNovo'}}" class="button button-clear right"  >{{> ionIcon icon="ios-plus-empty"}}</a>
+  {{/contentFor}} 
+        
+ 
+	{{#ionView}}
+		{{#ionContent}}  
+			{{#ionList}}			
+			{{#each lista}}
+				{{#ionItem}}
+				{{ profile.name }}<br>
+				<a href="{{pathFor 'criaDieta'}}">Criar Dieta</a>   				
+				{{/ionItem}}
+			{{/each}}
+			{{/ionList}}
+  		{{/ionContent}}
+	{{/ionView}}
+</template>

@@ -1,0 +1,92 @@
+<template name="criaDieta">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title" style="text-align:center">Cria Dieta</h1>
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+
+	{{#ionView}}
+		{{#ionContent}} 				
+			<div class="card" >
+				<div class="row item item-divider">
+				  <div class="col col-25 button button-small tab-sel" id="tab-1"><b>Café da<br>Manha</b></div>
+				  <div class="col col-25 button button-small tab" style="paddind-top:15px;" id="tab-2"><b>Almoço</b></div>
+				  <div class="col col-25 button button-small tab" id="tab-3"><b>Lanche da<br>Tarde</b></div>
+				  <div class="col col-25 button button-small tab" style="paddind-top:15px;" id="tab-4"><b>Jantar</b></div>
+				</div>
+				<div class="item  item-text-wrap dieta ativo" id="dieta-1" >
+					{{#each getDietaAlimentos "dieta-1" }}
+						{{> dietaItem }}
+					{{/each}}
+				</div>
+				<div class="item  item-text-wrap dieta escondido" id="dieta-2" >
+					{{#each getDietaAlimentos "dieta-2" }}
+						{{> dietaItem }}
+					{{/each}}
+				</div>
+				<div class="item  item-text-wrap dieta escondido" id="dieta-3" >
+					{{#each getDietaAlimentos "dieta-3" }}
+						{{> dietaItem }}
+					{{/each}}	
+				</div>
+				<div class="item item-text-wrap dieta escondido" id="dieta-4" >
+					{{#each getDietaAlimentos "dieta-4" }}
+						{{> dietaItem }}
+					{{/each}}
+				</div>
+				
+			</div>
+			
+			<div class="card" >
+				<div class="row">
+					
+					<div class="col">
+					<form id="busca-alimento">
+					  <label class="item item-input">
+						<i class="icon ion-search placeholder-icon"></i>						
+						<input type="text" id="inputBusca" name="busca"  value="{{busca}}" placeholder="Buscar Alimentos:"> </label>
+						</form>
+					</div>
+					<div class="col col-10">	
+						<button class="button button-small" data-ion-modal="_alimentoNovo">{{> ionIcon icon="ios-plus-empty"}}</button>				  
+					</div>				
+				  
+
+				</div>
+				<div class="item item-text-wrap" style="min-height:100px">				
+					{{#each getAlimentos}}
+						{{> alimentoItem }}
+					{{/each}}
+				</div>
+			</div>
+  		{{/ionContent}}
+	{{/ionView}}
+</template>
+<template name="alimentoItem">
+<button class="button button-small button-positive alimento" id="{{_id}}"   draggable="true">{{ descricao }}</button>
+</template>
+<template name="dietaItem">
+<!--span   style="padding:5px; border: 2px solid #A7C6FC; border-radius: 2px; background: #F6F9FE;" id="dieta-{{id_alimento}}"    ><nobr>
+{{alimento}}<button class="button button-clear button-positive del-alimento" id="{{_id}}" >{{> ionIcon icon="ios-close"}}</button></nobr></span-->
+<span  style="
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 2px;
+
+  text-align: center;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  min-width: 28px;  min-height: 30px;   font-size: 12px;  line-height: 26px; padding-left: 2px; padding-top: 8px; padding-bottom: 8px; margin:3px;  border-color: #0c60ee;
+  background-color: #387ef5;  color: #fff;" id="dieta-{{id_alimento}}"    ><nobr>
+<!--input id="qtd_{{_id}}" class="qtd_alimento" style="display: inline;	width:45px ;	height:30px;	margin-top: 0px;	  border: 1px solid  rgb(169, 169, 169);" type="number"  value="{{quantidade}}">
+<select _val="{{unidade}}"  id="unidade_{{_id}}" class="uni_alimento" style="display: inline;	width:62px ;	height:30px;	margin-top: 15px;	" >
+	<option   value="{{unidade}}" selected ></option>
+	<option   value="Kg"  >Kg</option>
+	<option   value="Un"  >Un</option>
+	<option   value="Maço"  >Maço</option>
+		
+</select--> {{alimento}}
+<!--button class="button button-clear button-positive"  ></button-->
+<button  class="button button-clear button-light del-alimento" style="vertical-align: middle;" id="{{_id}}" >{{> ionIcon icon="ios-close"}}</button></nobr></span>
+</template>

@@ -1,0 +1,5 @@
+<template name="_alimentoNovo">
+  {{#ionModal  title="Cadastrar Alimento" }}
+	{{> quickForm collection="Alimentos" doc=alimentos id="alimento-novo-form" omitFields="data_cadastro" type="insert" buttonContent="Cadastrar Alimento"}}	
+  {{/ionModal}}
+</template>

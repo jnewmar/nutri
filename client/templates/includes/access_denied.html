@@ -1,0 +1,20 @@
+<template name="accessDenied">
+	{{#contentFor "headerTitle"}}
+		<h1 class="title">Aceeso negado</h1>
+	{{/contentFor}}
+    {{#contentFor "headerButtonLeft"}}
+    {{>ionNavBackButton path="index"}}
+  {{/contentFor}}
+	{{#contentFor "headerButtonRight"}}
+    <a class="button button-clear" href="/login">Login</a>
+	{{/contentFor}}
+	{{#ionView}}
+		{{#ionContent}}  
+			<div class="card">
+			  <div class="item item-text-wrap">
+				Voce não tem permissão para ver essas área.
+			  </div>
+			</div>
+  		{{/ionContent}}
+	{{/ionView}}  
+</template>
